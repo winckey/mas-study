@@ -1,0 +1,14 @@
+server:
+  port: 8761
+
+spring:
+  application:
+    name: dicoveryservice
+
+
+eureka:
+  client:
+    allow-redirects: false
+    fetch-registry: false
+
+
