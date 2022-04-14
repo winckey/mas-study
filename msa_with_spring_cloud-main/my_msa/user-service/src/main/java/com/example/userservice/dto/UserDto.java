@@ -21,4 +21,5 @@ public class UserDto {
 
     private String encryptedPwd;
 
+    private List<ResponseOrder> orders;
 }
