@@ -1,0 +1,13 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: config-service
+  cloud:
+    config:
+      server:
+        git:
+          uri: file:\\\SSAFY\msa\msa_with_spring_cloud-main\git-repo
+#          http://localhost:8888/ecommerce/default ?? ?? ??
+

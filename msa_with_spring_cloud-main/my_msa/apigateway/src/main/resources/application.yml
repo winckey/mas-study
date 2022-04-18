@@ -52,6 +52,14 @@ spring:
             - RemoveRequestHeader=Cookie
             - RewritePath=/user-service/(?<segment>.*), /$\{segment}
 
+        - id: user-service
+          uri: lb://USER-SERVICE
+          predicates:
+            - Path=/user-service/health_check
+            - Method=GET
+          filters:
+            - RemoveRequestHeader=Cookie
+            - RewritePath=/user-service/(?<segment>.*), /$\{segment}
 
         - id: user-service
           uri: lb://USER-SERVICE
@@ -63,6 +71,8 @@ spring:
             - RewritePath=/user-service/(?<segment>.*), /$\{segment}
             - AuthorizationHeaderFilter
               #post는 인증없이되어야하지만 다른경우 인증요구
+
+
 
         - id: catalog-service
           uri: lb://CATALOG-SERVICE
@@ -91,4 +101,10 @@ spring:
 
 token:
   expiration_time: 86400000
-  secret: user_token
+  secret: user_token2222
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh, health, beans, httptrace, busrefresh, info, metrics, prometheus
