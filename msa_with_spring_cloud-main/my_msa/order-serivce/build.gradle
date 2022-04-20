@@ -33,6 +33,10 @@ dependencies {
     runtimeOnly 'com.h2database:h2'
 
     implementation group: 'org.modelmapper', name: 'modelmapper', version: '2.3.8'
+
+    implementation 'org.mariadb.jdbc:mariadb-java-client:2.7.3'
+    runtimeOnly 'mysql:mysql-connector-java'
+
 }
 
 dependencyManagement {

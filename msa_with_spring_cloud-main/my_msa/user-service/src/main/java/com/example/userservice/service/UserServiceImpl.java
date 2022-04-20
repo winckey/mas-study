@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService {
     OrderServiceClient orderServiceClient;
 
     @Autowired
-    public UserServiceImpl(UserRepository userRepository , BCryptPasswordEncoder bCryptPasswordEncoder) {
+    public UserServiceImpl(UserRepository userRepository , BCryptPasswordEncoder bCryptPasswordEncoder ,OrderServiceClient orderServiceClient) {
                                                                 //BCryptPasswordEncoder 여기 뜨는 에러는 빈으로 생성한적이 없기때문에
                                                                 //Autowired할수없음 -> 등록과정이 필요하다.
         this.userRepository =userRepository;

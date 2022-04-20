@@ -4,25 +4,36 @@ server:
 spring:
   application:
     name: order-service
-  h2:
-    console:
-      enabled: true
-      settings:
-        web-allow-others: true
-      path: /h2-console
+#  h2:
+#    console:
+#      enabled: true
+#      settings:
+#        web-allow-others: true
+#      path: /h2-console
+
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
+#  datasource:
+#    driver-class-name: org.h2.Driver
+#    url: jdbc:h2:mem:testdb
+#    username: sa
+#    password:
+##    driver-class-name: org.mariadb.jdbc.Driver
+##    url: jdbc:mariadb://localhost:3306/mydb
+##    username: root
+##    password: test1357
   datasource:
-    driver-class-name: org.h2.Driver
-    url: jdbc:h2:mem:testdb
-    username: sa
-    password:
-#    driver-class-name: org.mariadb.jdbc.Driver
-#    url: jdbc:mariadb://localhost:3306/mydb
-#    username: root
-#    password: test1357
-
+      url: jdbc:mysql://localhost:3306/msa_db?serverTimezone=UTC&characterEncoding=UTF-8
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      hikari:
+        username: root
+        password: admin
+#  url: jdbc:mysql://j6e206.p.ssafy.io:3306/jpmp?serverTimezone=UTC&characterEncoding=UTF-8
+#  driver-class-name : com.mysql.cj.jdbc.Driver
+#  hikari:
+#    username: SSAFY
+#    password: SSAFY
 eureka:
   instance:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
