@@ -33,6 +33,9 @@ dependencies {
     runtimeOnly 'com.h2database:h2'
 
     implementation group: 'org.modelmapper', name: 'modelmapper', version: '2.3.8'
+
+    implementation 'org.springframework.kafka:spring-kafka'
+
 }
 
 dependencyManagement {
