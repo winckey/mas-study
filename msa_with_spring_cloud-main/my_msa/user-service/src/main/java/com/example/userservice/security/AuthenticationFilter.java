@@ -70,7 +70,7 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
                         Long.parseLong(env.getProperty("token.expiration_time"))))// yml 에서 가져와서 만료기간 세팅
                 .signWith(SignatureAlgorithm.HS512, env.getProperty("token.secret"))// yml에 키저장하고 암호화
                 .compact();// 세팅완료
-
+        System.out.println("token : " + env.getProperty("token.expiration_time"));
         response.addHeader("token", token);
         response.addHeader("userId", userDetails.getUserId());
     }

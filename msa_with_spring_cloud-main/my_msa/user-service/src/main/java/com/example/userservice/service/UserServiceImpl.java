@@ -32,15 +32,15 @@ public class UserServiceImpl implements UserService {
     UserRepository userRepository;
     BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    OrderServiceClient orderServiceClient;
+
 
     @Autowired
-    public UserServiceImpl(UserRepository userRepository , BCryptPasswordEncoder bCryptPasswordEncoder ,OrderServiceClient orderServiceClient) {
+    public UserServiceImpl(UserRepository userRepository , BCryptPasswordEncoder bCryptPasswordEncoder ) {
                                                                 //BCryptPasswordEncoder 여기 뜨는 에러는 빈으로 생성한적이 없기때문에
                                                                 //Autowired할수없음 -> 등록과정이 필요하다.
         this.userRepository =userRepository;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
-        this.orderServiceClient = orderServiceClient;
+
     }
 
     @Override
@@ -69,7 +69,7 @@ public class UserServiceImpl implements UserService {
 
         UserDto userDto = new ModelMapper().map(userEntity, UserDto.class);
 
-//        List<ResponseOrder> orders = new ArrayList<>();
+        List<ResponseOrder> orders = new ArrayList<>();
         /* Using as rest template */
 //        String orderUrl = String.format(env.getProperty("order_service.url"), userId);
 //        ResponseEntity<List<ResponseOrder>> orderListResponse =
@@ -80,10 +80,10 @@ public class UserServiceImpl implements UserService {
 
         /* Using a feign client */
         /* Feign exception handling */
-        List<ResponseOrder> ordersList = orderServiceClient.getOrders(userId);
+//        List<ResponseOrder> ordersList = orderServiceClient.getOrders(userId);
 
 
-        userDto.setOrders(ordersList);
+        userDto.setOrders(orders);
 
         return userDto;
     }

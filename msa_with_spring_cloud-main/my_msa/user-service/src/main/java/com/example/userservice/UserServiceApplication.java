@@ -11,7 +11,7 @@ import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableFeignClients
+//@EnableFeignClients
 public class UserServiceApplication {
 
     public static void main(String[] args) {
@@ -23,8 +23,8 @@ public class UserServiceApplication {
         return new BCryptPasswordEncoder();
     }
 
-    @Bean
-    @LoadBalanced
+//    @Bean
+//    @LoadBalanced
     public RestTemplate getRestTemplate() {
         return new RestTemplate();
     }
