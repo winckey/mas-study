@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 
 @RestController
-@RequestMapping("/first-service")
+@RequestMapping("/")
 @Slf4j
 public class fController {
 
