@@ -15,7 +15,7 @@ import java.util.Map;
 
 @Service
 @Slf4j
-public class KafkaConsumer {
+public class KafkaConsumer {// 실제 토픽을 사용하는 컨슈머
     CatalogRepository repository;
 
     @Autowired
@@ -23,7 +23,7 @@ public class KafkaConsumer {
         this.repository = repository;
     }
 
-    @KafkaListener(topics = "example-catalog-topic")
+    @KafkaListener(topics = "example-catalog-topic")// 어떤 토픽을 들을꺼냐
     public void updateQty(String kafkaMessage) {
         log.info("Kafka Message: ->" + kafkaMessage);
 
